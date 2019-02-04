@@ -4,11 +4,34 @@
     <meta charset="utf-8">
     <meta name="viewport"
           content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>thoughtbot Middleman Template</title>
+    <title>IkOntwaak.nu - <%= current_page.data.title %></title>
     <%= stylesheet_link_tag "main" %>
   </head>
   <body>
-    <main role="main">
+    <header class="header">
+      <div class="header-wrap">
+        <%= image_tag "SH4U_logo.png", :class => "logo" %>
+        <span class="title">Ik Ontwaak.nu</span>
+        <ul class="contact-info">
+          <li>Contactgegevens:</li>
+          <li>Marljolein Slikkerveer</li>
+          <li>06-250 25 275</li>
+          <li>
+            <a href="mailto:marjolein@ikontwaak.nu">marjolein@ikontwaak.nu</a>
+          </li>
+        </ul>
+      </div>
+      <nav class="nav">
+        <% sitemap.resources.each do |f| %>
+          <% if f.content_type.include?("html") %>
+            <a class="nav-item <%= current_page.path == f.path ? "active" : "" %>" href="<%= f.url %>">
+              <%= f.data.title %>
+            </a>
+          <% end %>
+        <% end %>
+      </nav>
+    </header>
+    <main role="main" class="main">
       <%= yield %>
     </main>
     <%= partial "partials/analytics" %>
