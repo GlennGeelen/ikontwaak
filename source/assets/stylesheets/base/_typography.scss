@@ -22,12 +22,13 @@ p {
 }
 
 a {
-  color: $action-color;
+  color: $link-color;
+  text-decoration: none;
   text-decoration-skip: ink;
   transition: color $base-duration $base-timing;
 
   &:hover {
-    color: shade($action-color, 25%);
+    text-decoration: underline;
   }
 
   &:focus {
