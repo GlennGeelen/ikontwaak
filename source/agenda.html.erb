@@ -1,6 +1,90 @@
----
-order: 3
-title: "Agenda"
----
+;;;
+"order": 3,
+"title": "Agenda",
+"agendaItems": [
+  {
+    "day": "Dinsdag",
+    "infoItems": [
+      {
+        "time": "10:30 - 11:30",
+        "location": "Anemoonflat (via Vaart Welzijn)",
+        "contact": "06-25025275 - Marjolein Slikkerveer"
+      }
+    ]
+  },
+  {
+    "day": "Woensdag",
+    "infoItems": [
+      {
+        "time": "19:45 - 20:45",
+        "location": "Wijster",
+        "contact": "06-25025275 - Marjolein Slikkerveer"
+      }
+    ]
+  },
+  {
+    "day": "Donderdag",
+    "infoItems": [
+      {
+        "time": "13:15 - 14:15",
+        "location": "Maasstraat 25 (via Vaart Welzijn)",
+        "contact": "06-25025275 - Marjolein Slikkerveer",
+        "age": "55+"
+      },
+      {
+        "time": "14:30 - 15:30",
+        "location": "Maasstraat 25 (via Vaart Welzijn)",
+        "contact": "06-25025275 - Marjolein Slikkerveer",
+        "age": "55+"
+      },
+      {
+        "time": "18:30 - 19:30",
+        "location": "Assen-oost",
+        "contact": "0592-311161 - Paramedics"
+      }
+    ]
+  },
+  {
+    "day": "Vrijdag",
+    "infoItems": [
+      {
+        "time": "09:00 - 10:00",
+        "location": "Zuidlaren, Ludinge 4",
+        "contact": "0592-338938 - Vera Lolkema"
+      },
+      {
+        "time": "10:15 - 11:15",
+        "location": "Zuidlaren, Ludinge 4",
+        "contact": "0592-338938 - Vera Lolkema"
+      },
+      {
+        "time": "13:15 - 14:15",
+        "location": "Kloosterveste (via Vaart Welzijn)",
+        "contact": "06-25025275 - Marjolein Slikkerveer"
+      }
+    ]
+  }
+]
+;;;
 
-<h1><%= current_page.data.title %></h1>
+<div class="content">
+  <h1><%= current_page.data.title %></h1>
+
+  <div class="agenda">
+    <% current_page.data.agendaItems.each do |agenda_item| %>
+    <div class="agenda-item">
+      <span class="day"><%= agenda_item.day %></span>
+      <% agenda_item.infoItems.each do |info| %>
+        <fieldset class="info">
+          <legend><%= info.time %></legend>
+          <div class="location"><strong>Locatie: </strong><%= info.location %></div>
+          <div class="contact"><strong>Conact: </strong><%= info.contact %></div>
+          <% if info.age %>
+            <div class="age"><strong>Leeftijd: </strong><%= info.age %></div>
+          <% end %>
+        </fieldset>
+      <% end %>
+    </div>
+    <% end %>
+  </div>
+</div>

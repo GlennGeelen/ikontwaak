@@ -1,0 +1,20 @@
+.agenda {
+  max-width: 600px;
+}
+
+.agenda-item {
+  margin-top: 25px;
+
+  .day {
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+
+  .info {
+    background: rgba(0, 0, 0, 0.04);
+    border: 2px solid $medium-gray;
+    margin-top: 10px;
+    padding: 0 15px 15px;
+  }
+}

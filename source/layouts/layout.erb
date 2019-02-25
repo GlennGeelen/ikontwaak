@@ -7,7 +7,7 @@
     <title>IkOntwaak.nu - <%= current_page.data.title %></title>
     <%= stylesheet_link_tag "main" %>
   </head>
-  <body>
+  <body class="<%= current_page.data.body_class %>">
     <header class="header">
       <div class="header-wrap">
         <%= image_tag "SH4U_logo.png", :class => "logo", :alt => "Ik ontwaak.nu logo" %>
