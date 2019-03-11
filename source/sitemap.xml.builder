@@ -4,7 +4,6 @@ xml.urlset xmlns: "http://www.sitemaps.org/schemas/sitemap/0.9" do
     page.path =~ /\.html/
   end
 
-  pages = pages.sort_by{|a| a.data.order}
   pages.each do |page|
     xml.url do
       xml.loc URI.join(ENV.fetch("URL"), page.url)

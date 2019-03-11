@@ -14,7 +14,7 @@
         <span class="title">Ik Ontwaak.nu</span>
       </div>
       <nav class="nav">
-        <% sitemap.resources.each do |f| %>
+        <% sitemap.resources.delete_if{|i| i.data.order == nil}.sort_by!{|a| a.data.order}.each do |f| %>
           <% if f.content_type.include?("html") %>
             <a class="nav-item <%= current_page.path == f.path ? "active" : "" %>" href="<%= f.url %>">
               <%= f.data.title %>
